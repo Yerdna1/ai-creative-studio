@@ -1,0 +1,35 @@
+{
+  "name": "ai-creative-studio",
+  "description": "AI-powered creative studio for film/video production with 5-module workflow",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "@vitest/coverage-v8": "^1.6.0",
+    "autoprefixer": "^10.4.24",
+    "jsdom": "^25.0.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "vite": "^5.4.0",
+    "vitest": "^1.6.0"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.0",
+    "@neondatabase/serverless": "^0.10.0",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@tailwindcss/vite": "^4.1.18",
+    "drizzle-orm": "^0.36.0",
+    "hono": "^4.6.0",
+    "puppeteer": "^24.37.2"
+  }
+}
