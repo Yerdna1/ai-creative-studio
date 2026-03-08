@@ -25,22 +25,18 @@ export function Header(navigate) {
 
     const menu = document.createElement('nav');
     menu.className = 'hidden lg:flex items-center gap-6 text-[13px] font-bold text-secondary';
-    const items = ['Explore', 'Image', 'Video', 'Edit', 'Character', 'Contests', 'Vibe Motion', 'Cinema Studio', 'AI Influencer', 'Apps', 'Assist', 'Community'];
+    const items = ['Script', 'Characters', 'Scenes', 'Director', 'S-Class'];
 
     items.forEach(item => {
         const link = document.createElement('a');
         link.textContent = item;
-        link.className = `hover:text-white transition-all cursor-pointer relative group ${item === 'Image' ? 'text-white' : ''}`;
+        link.className = `hover:text-white transition-all cursor-pointer relative group ${item === 'Script' ? 'text-white' : ''}`;
 
-        // Active Indicator or Dot
-        if (item === 'Image') {
+        // Active Indicator
+        if (item === 'Script') {
             const dot = document.createElement('div');
             dot.className = 'absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full';
             link.appendChild(dot);
-        }
-
-        if (item === 'Contests') {
-            link.innerHTML += ' <span class="bg-primary/10 text-primary text-[8px] px-1.5 py-0.5 rounded-full ml-1 border border-primary/20">New</span>';
         }
 
         link.onclick = () => {
@@ -49,9 +45,11 @@ export function Header(navigate) {
             // Add to current
             link.classList.add('text-white');
 
-            if (item === 'Image') navigate('image');
-            else if (item === 'Video') navigate('video');
-            else if (item === 'Cinema Studio') navigate('cinema');
+            // Navigate to module
+            if (navigate) {
+                const route = item.toLowerCase().replace(' ', '-').replace('-class', 'class');
+                navigate(route);
+            }
         };
 
         menu.appendChild(link);

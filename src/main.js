@@ -1,6 +1,6 @@
 import './style.css';
 import { Header } from './components/Header.js';
-import { ImageStudio } from './components/ImageStudio.js';
+import { ScriptStudio } from './components/ScriptStudio.js';
 
 const app = document.querySelector('#app');
 let contentArea;
@@ -10,15 +10,23 @@ function navigate(page) {
   if (!contentArea) return;
   contentArea.innerHTML = '';
 
-  if (page === 'image') {
-    contentArea.appendChild(ImageStudio());
-  } else if (page === 'video') {
-    import('./components/VideoStudio.js').then(({ VideoStudio }) => {
-      contentArea.appendChild(VideoStudio());
+  if (page === 'script') {
+    contentArea.appendChild(ScriptStudio());
+  } else if (page === 'characters') {
+    import('./components/CharacterStudio.js').then(({ CharacterStudio }) => {
+      contentArea.appendChild(CharacterStudio());
     });
-  } else if (page === 'cinema') {
-    import('./components/CinemaStudio.js').then(({ CinemaStudio }) => {
-      contentArea.appendChild(CinemaStudio());
+  } else if (page === 'scenes') {
+    import('./components/SceneStudio.js').then(({ SceneStudio }) => {
+      contentArea.appendChild(SceneStudio());
+    });
+  } else if (page === 'director') {
+    import('./components/DirectorStudio.js').then(({ DirectorStudio }) => {
+      contentArea.appendChild(DirectorStudio());
+    });
+  } else if (page === 'sclass') {
+    import('./components/SClassStudio.js').then(({ SClassStudio }) => {
+      contentArea.appendChild(SClassStudio());
     });
   }
 }
@@ -32,8 +40,8 @@ contentArea.id = 'content-area';
 contentArea.className = 'flex-1 relative w-full overflow-hidden flex flex-col bg-app-bg';
 app.appendChild(contentArea);
 
-// Initial Route
-navigate('image');
+// Initial Route - Script Studio
+navigate('script');
 
 // Event Listener for Navigation
 window.addEventListener('navigate', (e) => {
